@@ -1,5 +1,8 @@
 const barChart = document.getElementById('bar-chart');
 const pieChart = document.getElementById('pie-chart');
+const lineChart = document.getElementById('line-chart');
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June'];
 
 new Chart(barChart, {
   type: 'bar',
@@ -36,14 +39,26 @@ new Chart(pieChart, {
     labels: ['Red', 'Blue', 'Yellow'],
     datasets: [
       {
-        label: 'My First Dataset',
+        label: 'Orders',
         data: [300, 50, 100],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-        ],
+        backgroundColor: ['#FF6384', '#0D6EFD', '#FFCE56'],
         hoverOffset: 4,
+      },
+    ],
+  },
+});
+
+new Chart(lineChart, {
+  type: 'line',
+  data: {
+    labels: months,
+    datasets: [
+      {
+        label: 'Orders',
+        data: [54, 65, 79, 92, 57, 45, 65],
+        fill: false,
+        borderColor: '#0D6EFD',
+        tension: 0.1,
       },
     ],
   },
